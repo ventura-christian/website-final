@@ -16,11 +16,18 @@
     <title>InfraScope</title>
   </head>
   <body>
-    <h1>InfraScope</h1>
-    <h2>Observe your systems</h2>
-    <header>
-      <nav>
+    <header class="layout-nav">
+      <nav id="nav">
         <ul>
+          <!-- There will be one big ui element that will bew changed based on the selection of the "placeholder button" -->
+          <!-- The placeholder button will allow for a state change. 
+          The UI element will alter and display the chosen selection dynamically.
+          I want the text to drastically change in size,
+          then allow for switching (the word will dynamically change) based on the section to be displayed. 
+          -->
+          <li>
+            <button>Placeholder</button>
+          </li>
           <li><a href="#dashboard">Dashboard</a></li>
           <li><a href="#data-viewer">Data</a></li>
           <li><a href="#storage">Preferences</a></li>
@@ -28,14 +35,34 @@
       </nav>
     </header>
 
-    <main>
-      <section id="hero"></section>
-      <section id="dashboard"></section>
-      <section id="data-viewer"></section>
-      <section id="storage"></section>
-      <section id="carousel"></section>
+    <main class="layout-main">
+      <!-- The hero will stand to introduce the website -->
+      <section id="hero" class="layout-fullscreen">
+        <h1>InfraScope</h1>
+        <!-- I will add more information or items to make this more dynamic -->
+      </section>
+      <section id="dashboard" class="layout-container">
+        <!-- the dashboard will be a container system -->
+        <h3>Dashboard Information</h3>
+        <!-- The dashboard will be the primary section -->
+        <section id="tools" class="layout-grid">
+          <h3>Tools</h3>
+          <section id="data-viewer" class="component-section">
+            <h3>&gt;&gt; Data-Viewer: Item-1</h3>
+            <!-- placeholder text: data will be shown here -->
+          </section>
+          <section id="storage" class="component-section">
+            <h3>&gt;&gt; Storage: Item-2</h3>
+            <!-- placeholder: storage data will be shown here -->
+          </section>
+          <section id="carousel" class="component-section">
+            <h3>&gt;&gt; Carousel Data: Item-3</h3>
+            <!-- placeholder: carousel and data to be displayed will be shown here -->
+          </section>
+          <!-- The data-viewer, storage, and carousel will be secondary sections -->
+        </section>
+      </section>
     </main>
-
     <footer>Copyright &copy; christian_Ventura_2026</footer>
   </body>
 </html>
