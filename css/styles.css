@@ -35,5 +35,39 @@
 }
 
 body {
-  background: var(--color-accent-primary);
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: "Inter", sans-serif;
+  line-height: 1.4;
+  overflow-x: hidden;
+}
+
+.layout-main {
+  width: 100%;
+}
+
+.layout-main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem;
+}
+
+.layout-container {
+  padding: 4rem;
+  background: var(--color-bg);
+}
+
+.ui-title {
+  font-size: clamp(4rem, 10vw, 10rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+.ui-subtitle {
+  font-size: 1.2rem;
+  color: var(--color-text-secondary);
+  margin-top: 1rem;
 }
