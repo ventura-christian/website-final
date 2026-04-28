@@ -42,6 +42,25 @@ body {
   overflow-x: hidden;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.02) 0px,
+    rgba(255, 255, 255, 0.02) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+}
+
+.layout-container {
+  padding: 4rem;
+  background: var(--color-bg);
+}
+
 .layout-main {
   width: 100%;
 }
@@ -54,17 +73,20 @@ body {
   padding: 4rem;
 }
 
-.layout-container {
-  padding: 4rem;
-  background: var(--color-bg);
+.layout-nav {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1000;
 }
 
 .ui-title {
   font-size: clamp(4rem, 10vw, 10rem);
-  /* I discovered clamp when I was doing research and I'm using it for now. This is experimental and might change. */
   font-weight: 900;
   letter-spacing: -0.05em;
   text-transform: uppercase;
+  text-shadow: 0 0 20px var(--color-glow);
+  transform: skewX(-5deg);
 }
 
 .ui-subtitle {
@@ -109,4 +131,47 @@ body {
 
 .system-card.offline {
   border-color: var(--color-danger);
+}
+
+#tools {
+  transition: all 0.2s ease;
+}
+
+.system-card:hover {
+  transform: translateX(8px);
+}
+
+.nav-trigger {
+  background: none;
+  border: none;
+  color: var(--color-accent-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.nav-menu {
+  list-style: none;
+  margin-top: 1rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-menu.active {
+  display: flex;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  font-family: monospace;
+  transition: all 0.2s ease;
+}
+
+.nav-menu a:hover {
+  color: var(--color-accent-secondary);
+  transform: translateX(5px);
 }

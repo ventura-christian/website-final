@@ -17,23 +17,17 @@
   </head>
   <body>
     <header class="layout-nav">
-      <nav id="nav">
-        <ul>
-          <!-- There will be one big ui element that will bew changed based on the selection of the "placeholder button" -->
-          <!-- The placeholder button will allow for a state change. 
-          The UI element will alter and display the chosen selection dynamically.
-          I want the text to drastically change in size,
-          then allow for switching (the word will dynamically change) based on the section to be displayed. 
-          -->
-          <li>
-            <button>Placeholder</button>
-          </li>
-          <li><a href="#dashboard">Dashboard</a></li>
-          <li><a href="#data-viewer">Data</a></li>
-          <li><a href="#storage">Preferences</a></li>
-        </ul>
+      <nav class="nav">
+        <div class="nav-control">
+          <button id="nav-toggle" class="nav-trigger">MODE</button>
+
+          <ul id="nav-menu" class="nav-menu">
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#data-viewer">Data</a></li>
+            <li><a href="#storage">Preferences</a></li>
+          </ul>
+        </div>
       </nav>
-      <!-- I don't know if i'll keep this feature as it might serve no purpose based on the direction of my design...stay tuned -->
     </header>
 
     <main class="layout-main">
