@@ -56,6 +56,67 @@ body::before {
   pointer-events: none;
 }
 
+.dashboard-stage {
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(255, 255, 255, 0.03) 50%, transparent 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+}
+
+.dashboard-noise {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 20% 30%,
+    rgba(255, 255, 255, 0.03),
+    transparent 40%
+  );
+  pointer-events: none;
+}
+
+.dashboard-glyphs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.dashboard-glyphs::before {
+  content: "01010101 1010 091 INFRA SYS NET API NODE 050326";
+  position: absolute;
+  white-space: nowrap;
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: var(--color-warning);
+  opacity: 0.1;
+  animation: scrollGlyphs 20s linear infinite;
+}
+
+@keyframes scrollGlyphs {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+#dashboard {
+  min-height: 200vh;
+}
+
+.dashboard-content {
+  position: relative;
+  z-index: 2;
+}
+
 .layout-container {
   padding: 4rem;
   background: var(--color-bg);
@@ -135,6 +196,7 @@ body::before {
 
 #tools {
   transition: all 0.2s ease;
+  transform: translateY(40px);
 }
 
 .system-card:hover {
