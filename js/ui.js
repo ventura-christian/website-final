@@ -1,5 +1,21 @@
 "use strict";
 
+export function renderSystems(system) {
+  const container = document.getElementById("systems-container");
+
+  container.innerHTML = "";
+
+  systems.forEach((system) => {
+    const card = document.createElement("div");
+
+    card.classList.add("system-card", system.status);
+
+    card.innerHTML = `<span>${system.name}</span><span>${system.latency}</span>`;
+
+    container.appendChild(card);
+  });
+}
+
 const toggle = document.getElementById("nav-toggle");
 const menu = document.getElementById("nav-menu");
 
