@@ -200,6 +200,26 @@ body[data-mode="feed"] .dashboard-glyphs::before {
   margin-bottom: 2rem;
 }
 
+.ui-content {
+  margin-bottom: 2rem;
+  font-family: monospace;
+}
+
+.context-primary {
+  font-size: 1rem;
+  color: var(--color-text-primary);
+}
+
+.context-primary span {
+  color: var(--color-accent-primary);
+}
+
+.context-secondary {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  opacity: 0.7;
+}
+
 #systems-container {
   display: flex;
   flex-direction: column;

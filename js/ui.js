@@ -29,6 +29,8 @@ const label = document.getElementById("mode-label");
 
 const signalValue = document.getElementById("signal-value");
 
+const contextMode = document.getElementById("context-mode");
+
 modeLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
@@ -38,7 +40,7 @@ modeLinks.forEach((link) => {
     body.setAttribute("data-mode", mode);
 
     label.textContent = `[${mode.toUpperCase()}]`;
-    signalValue.textContent = mode.toUpperCase();
+    contextMode.textContent = mode.toUpperCase();
 
     document.body.classList.remove("mode-switch");
     void document.body.offsetWidth;
