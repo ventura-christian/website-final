@@ -26,7 +26,8 @@ toggle.addEventListener("click", () => {
 const modeLinks = document.querySelectorAll("[data-mode]");
 const body = document.body;
 const label = document.getElementById("mode-label");
-const modeText = document.getElementById("mode-text");
+
+const signalValue = document.getElementById("signal-value");
 
 modeLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
@@ -35,7 +36,10 @@ modeLinks.forEach((link) => {
     const mode = link.getAttribute("data-mode");
 
     body.setAttribute("data-mode", mode);
+
     label.textContent = `[${mode.toUpperCase()}]`;
     modeText.textContent = mode.toUpperCase();
+
+    document.dispatchEvent(new CustomEvent("modeChange", { detail: mode }));
   });
 });
