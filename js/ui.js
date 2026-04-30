@@ -38,7 +38,11 @@ modeLinks.forEach((link) => {
     body.setAttribute("data-mode", mode);
 
     label.textContent = `[${mode.toUpperCase()}]`;
-    modeText.textContent = mode.toUpperCase();
+    signalValue.textContent = mode.toUpperCase();
+
+    document.body.classList.remove("mode-switch");
+    void document.body.offsetWidth;
+    document.body.classList.add("mode-switch");
 
     document.dispatchEvent(new CustomEvent("modeChange", { detail: mode }));
   });
