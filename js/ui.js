@@ -36,6 +36,6 @@ modeLinks.forEach((link) => {
 
     body.setAttribute("data-mode", mode);
     label.textContent = `[${mode.toUpperCase()}]`;
-    modeText.textContent = mode.toUpperCase;
+    modeText.textContent = mode.toUpperCase();
   });
 });
