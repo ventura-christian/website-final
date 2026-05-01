@@ -408,7 +408,7 @@ body[data-mode="feed"] [data-view="feed"] {
     padding: 2rem;
   }
   .layout-container {
-    padding: 2rem;
+    padding: 4rem;
   }
   .layout-grid {
     grid-template-columns: 1fr 1fr;
