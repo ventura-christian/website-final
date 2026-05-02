@@ -144,20 +144,21 @@ body::before {
 .nav-menu {
   list-style: none;
   position: absolute;
-  top: 0;
-  left: calc(100% + 0.75rem);
+  top: 100%;
+  left: 0;
+  width: 100%;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   opacity: 0;
-  transform: translateX(-10px);
+  transform: translateY(-10px);
   pointer-events: none;
   transition: all 0.25s ease;
 }
 
 .nav-menu.active {
-  opacity: 1;
+  opacity: 3;
   transform: translateX(0);
   pointer-events: auto;
 }
@@ -172,6 +173,10 @@ body::before {
 .nav-menu a:hover {
   color: var(--color-text-primary);
   transform: translateX(5px);
+}
+
+.nav-menu a.active {
+  color: var(--color-danger);
 }
 
 .ui-title {
@@ -236,9 +241,9 @@ body::before {
 .dashboard-stage {
   padding: 2rem;
   border: 0.5px solid var(--color-text-secondary);
-  border-radius: 3px;
+  border-radius: 5px;
   position: relative;
-  overflow: hidden;
+  min-height: 350px;
 }
 
 .dashboard-stage::after {
@@ -450,14 +455,15 @@ body[data-mode="feed"] [data-view="feed"] {
   }
 
   .nav-menu {
-    top: calc(100% + 0.5rem);
+    top: 100%;
     left: 0;
+    width: auto;
     border: none;
-    transform: translateY(-10px);
+    transform: translateX(10px);
   }
 
   .nav-menu.active {
-    transform: translateY(0);
+    transform: translateX(0);
   }
 
   .layout-grid {
