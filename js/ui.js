@@ -82,8 +82,10 @@ export function renderFeed(feed) {
     const div = document.createElement("div");
     div.classList.add("feed-entry");
 
-    div.innerHTML = `<span class="feed-time">[${entry.timestamp}]</span>`;
-    div.innerHTML = `<span class="feed-msg">[${entry.message}]</span>`;
+    div.innerHTML = `
+    <span class="feed-time">[${entry.timestamp}]</span>
+    <span class="feed-msg">[${entry.message}]</span>
+    `;
 
     container.appendChild(div);
   });
