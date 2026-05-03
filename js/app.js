@@ -1,5 +1,7 @@
 "use strict";
 
+import { saveNote, getNotes } from "./storage.js";
+import { renderStorage } from "./ui.js";
 import { fetchSystems } from "./api.js";
 import { renderSystems, renderFeed } from "./ui.js";
 
@@ -43,9 +45,32 @@ setInterval(simulateSession, 5000);
 async function init() {
   state.systems = await fetchSystems();
   renderSystems(state.systems);
+
+  const notes = getNotes();
+  renderStorage(notes);
 }
 
 init();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("storage-input");
+  const button = document.getElementById("storage-save");
+
+  if (!input || !button) return;
+
+  button.addEventListener("click", () => {
+    const value = input.value.trim();
+
+    if (!value) return;
+
+    saveNote(value);
+
+    const updated = getNotes();
+    renderStorage(updated);
+
+    input.value = "";
+  });
+});
 
 function logEvent(message) {
   const timestamp = new Date().toLocaleTimeString();
@@ -91,12 +116,17 @@ function simulateSystems() {
 
 setInterval(simulateSystems, 3000);
 
-window.addEventListener("load", () => {
-  if (window.$ && $(".carousel").length) {
+$(document).ready(function () {
+  if ($(".carousel").length) {
+    $(".carousel").on("init", function () {
+      $(this).css("visibility", "visible");
+    });
+
     $(".carousel").slick({
       autoplay: true,
       arrows: false,
       dots: true,
+      autoplaySpeed: 2000,
     });
   }
 });

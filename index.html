@@ -47,12 +47,8 @@
         </h2>
 
         <div class="ui-context">
-          <p>
-            Monitoring Active System Layer:
-            <span id="context-mode">FEED</span>
-          </p>
           <p class="context-secondary">
-            Select a mode to inspect different infrastructure signals.
+            Select a mode to inspect different infrastructure signals
           </p>
         </div>
 
@@ -62,18 +58,36 @@
 
           <section id="tools" class="dashboard-panel">
             <div id="systems-view" class="view" data-view="dashboard">
-              <h3>&gt;&gt; ACTIVE SYSTEMS</h3>
+              <h3>&gt;&gt;&gt; ACTIVE SYSTEMS &gt;&gt;&gt;</h3>
               <br />
+              <p class="panel-desc">
+                Real-time system health metrics are displayed below.
+              </p>
+              <p class="panel-desc">
+                Latency and status indicators update dynamically to simulate
+                live infrastructure.
+              </p>
+              <p class="panel-desc">
+                Monitor changes to identify degradation, outages, and
+                performance shifts.
+              </p>
               <div id="systems-container"></div>
             </div>
 
             <div id="storage" class="view" data-view="storage">
-              <h3>&gt;&gt; STORAGE LAYER</h3>
+              <h3>&gt;&gt;&gt; STORAGE LAYER &gt;&gt;&gt;</h3>
               <br />
+              <p class="panel-desc">
+                Persist operational notes within the client storage layer.
+              </p>
+              <p class="panel-desc">
+                Entries are retained locally and reloaded on subsequent
+                sessions.
+              </p>
+              <p class="panel-desc">
+                Use this space to track observations, anomalies, or manual logs.
+              </p>
               <div class="storage-panel">
-                <p>Enter whatever is on your mind.</p>
-                <p>Your thoughts will be saved in this space.</p>
-                <p>Go ahead and try it out &gt;&gt;&gt;</p>
                 <input
                   type="text"
                   id="storage-input"
@@ -86,9 +100,20 @@
             </div>
 
             <div id="feed" class="view" data-view="feed">
-              <h3>&gt;&gt; EVENT FEED</h3>
+              <h3>&gt;&gt;&gt; EVENT FEED &gt;&gt;&gt;</h3>
               <br />
-
+              <p class="panel-desc">
+                Event stream displays real-time system activity and state
+                changes.
+              </p>
+              <p class="panel-desc">
+                Logs are generated dynamically based on system behavior and user
+                interaction.
+              </p>
+              <p class="panel-desc">
+                Use this feed to trace system transitions and monitor
+                operational flow.
+              </p>
               <div class="carousel">
                 <div><p>System initialized</p></div>
                 <div><p>Monitoring active nodes</p></div>
@@ -100,6 +125,8 @@
         </div>
       </section>
     </main>
-    <footer>Copyright &copy; christian_Ventura_2026</footer>
+    <footer class="site-footer">
+      <p>&copy;Copyright christian_Ventura &gt;&gt;&gt; InfraScope</p>
+    </footer>
   </body>
 </html>

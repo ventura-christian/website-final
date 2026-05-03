@@ -22,6 +22,12 @@ toggle.addEventListener("click", () => {
   menu.classList.toggle("active");
 });
 
+document.addEventListener("click", (e) => {
+  if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+    menu.classList.remove("active");
+  }
+});
+
 const modeLinks = document.querySelectorAll("[data-mode]");
 const body = document.body;
 const label = document.getElementById("mode-label");
@@ -46,6 +52,7 @@ modeLinks.forEach((link) => {
     document.body.classList.add("mode-switch");
 
     document.dispatchEvent(new CustomEvent("modeChange", { detail: mode }));
+    menu.classList.remove("active");
   });
 });
 
@@ -86,6 +93,22 @@ export function renderFeed(feed) {
     <span class="feed-time">[${entry.timestamp}]</span>
     <span class="feed-msg">[${entry.message}]</span>
     `;
+
+    container.appendChild(div);
+  });
+}
+
+export function renderStorage(notes) {
+  const container = document.getElementById("storage-list");
+
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  notes.forEach((note) => {
+    const div = document.createElement("div");
+    div.classList.add("storage-item");
+    div.textContent = note;
 
     container.appendChild(div);
   });

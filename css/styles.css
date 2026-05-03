@@ -50,6 +50,10 @@ body::before {
   pointer-events: none;
 }
 
+h3 {
+  color: var(--color-text-primary);
+}
+
 .layout-main {
   min-height: 100vh;
   display: flex;
@@ -147,8 +151,9 @@ body::before {
 .nav-menu {
   list-style: none;
   position: absolute;
-  top: 100%;
-  right: 0;
+  top: 110%;
+  left: 0;
+  right: auto;
   background: transparent;
   min-width: 180px;
   padding: 1rem;
@@ -194,8 +199,8 @@ body::before {
 
 .ui-subtitle {
   font-size: 1.2rem;
-  color: var(--color-text-secondary);
-  margin-top: 1rem;
+  color: var(--color-accent-primary);
+  margin-top: 0.5rem;
 }
 
 .ui-section-title {
@@ -221,9 +226,9 @@ body::before {
 }
 
 .context-secondary {
-  font-size: 0.8rem;
-  color: var(--color-text-secondary);
-  opacity: 0.7;
+  font-size: 1rem;
+  color: var(--color-warning);
+  opacity: 0.6;
 }
 
 .ui-signal {
@@ -243,7 +248,7 @@ body::before {
 }
 
 #dashboard {
-  min-height: 200vh;
+  min-height: auto;
 }
 
 .dashboard-stage {
@@ -251,7 +256,7 @@ body::before {
   border: 0.5px solid var(--color-text-secondary);
   border-radius: 5px;
   position: relative;
-  min-height: 350px;
+  min-height: 250px;
 }
 
 .dashboard-stage::after {
@@ -511,8 +516,31 @@ body[data-mode="feed"] [data-view="feed"] {
   background: transparent;
 }
 
+.carousel {
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel > div {
+  display: none;
+}
+
+.carousel.slick-initialized > div {
+  display: block;
+}
+
 .carousel.slick-initialized {
+  opacity: 1;
+  transition: opacity 0.2s ease;
   visibility: visible;
+}
+
+.carousel .slick-slide p {
+  font-family: monospace;
+  color: var(--color-success);
+  text-shadow: 0 0 4px var(--color-accent-primary);
 }
 
 .slick-dots {
@@ -532,13 +560,12 @@ body[data-mode="feed"] [data-view="feed"] {
 
 .slick-dots li button {
   background: none;
-  border: 1px solid var(--color-success);
+  border: 1px solid var(--color-accent-primary);
   font-family: monospace;
-  font-size: 0.6rem;
+  font-size: 1rem;
   padding: 0.25rem 0.4rem;
   cursor: pointer;
   border-radius: 5px;
-  /* width: fit-content; */
   outline: none;
 }
 
@@ -550,14 +577,14 @@ body[data-mode="feed"] [data-view="feed"] {
 
 .slick-dots li button:hover {
   color: var(--color-accent-secondary);
-  border-color: var(--color-warning);
+  border-color: var(--color-accent-secondary);
   transform: translateX(2px);
   transition: all 0.15s ease;
 }
 
 .slick-dots li.slick-active button {
-  border-color: var(--color-danger);
-  color: var(--color-accent-primary);
+  border-color: var(--color-warning);
+  color: var(--color-warning);
 }
 
 .slick-slide {
@@ -570,7 +597,7 @@ body[data-mode="feed"] [data-view="feed"] {
 
 .carousel p {
   font-family: monospace;
-  color: var(--color-warning);
+  color: var(--color-accent-primary);
 }
 
 .storage-panel {
@@ -607,5 +634,37 @@ body[data-mode="feed"] [data-view="feed"] {
   border-left: 2px solid var(--color-accent-secondary);
   padding: 0.5rem;
   font-family: monospace;
-  color: var(--color-text-secondary);
+  color: var(--color-warning);
+}
+
+.panel-desc {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--color-accent-tertiary);
+  opacity: 0.7;
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
+}
+
+body[data-mode="dashboard"] .panel-desc {
+  color: var(--color-success);
+}
+
+body[data-mode="storage"] .panel-desc {
+  color: var(--color-accent-secondary);
+}
+
+body[data-mode="feed"] .panel-desc {
+  color: var(--color-accent-primary);
+}
+
+.site-footer {
+  text-align: center;
+  padding: 1rem;
+  font-family: monospace;
+  font-size: 1rem;
+  color: var(--color-accent-primary);
+  border-top: 1px solid var(--color-success);
+  margin-top: 2rem;
+  opacity: 0.9;
 }
