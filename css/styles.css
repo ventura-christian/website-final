@@ -504,10 +504,38 @@ body[data-mode="feed"] [data-view="feed"] {
 
 .carousel {
   margin-bottom: 1.5rem;
+  visibility: hidden;
   border: 1px solid var(--color-accent-primary);
   padding: 1rem;
   border-radius: 5px;
   background: transparent;
+}
+
+.carousel.slick-initialized {
+  visibility: visible;
+}
+
+.slick-dots {
+  list-style: none;
+  margin-top: 0.5rem;
+}
+
+.slick-dots li {
+  display: inline-block;
+  margin: 0 4px;
+}
+
+.slick-dots li button::before {
+  color: var(--color-accent-tertiary);
+  font-size: 8px;
+}
+
+.slick-slide {
+  text-align: center;
+}
+
+.slick-slide:focus {
+  outline: none;
 }
 
 .carousel p {
