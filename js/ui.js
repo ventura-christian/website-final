@@ -1,5 +1,22 @@
 "use strict";
 
+export function initUI() {
+  const toggle = document.getElementById("nav-toggle");
+  const menu = document.getElementById("nav-menu");
+
+  if (!toggle || !menu) return;
+
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("active");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+      menu.classList.remove("active");
+    }
+  });
+}
+
 export function renderSystems(systems) {
   const container = document.getElementById("systems-container");
 
@@ -9,7 +26,6 @@ export function renderSystems(systems) {
     const card = document.createElement("div");
 
     card.classList.add("system-card", system.status);
-
     card.innerHTML = `<span>${system.name}</span><span>${system.latency}ms</span>`;
 
     container.appendChild(card);
@@ -23,24 +39,27 @@ toggle.addEventListener("click", () => {
   menu.classList.toggle("active");
 });
 
+document.addEventListener("click", (e) => {
+  if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+    menu.classList.remove("active");
+  }
+});
+
 const modeLinks = document.querySelectorAll("[data-mode]");
 const body = document.body;
-const label = document.getElementById("mode-label");
 
 const signalValue = document.getElementById("signal-value");
-
-const contextMode = document.getElementById("context-mode");
 
 modeLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
-
     const mode = link.getAttribute("data-mode");
 
     body.setAttribute("data-mode", mode);
 
-    label.textContent = `[${mode.toUpperCase()}]`;
-    contextMode.textContent = mode.toUpperCase();
+    const label = document.getElementById("mode-label");
+
+    if (label) label.textContent = `[${mode.toUpperCase()}]`;
 
     document.body.classList.remove("mode-switch");
     void document.body.offsetWidth;
@@ -57,6 +76,10 @@ document.addEventListener("modeChange", (e) => {
 
   let text = "";
 
+  if (mode === "idle") {
+    text = "SYSTEM STANDBY AWAITING INPUT";
+  }
+
   if (mode === "dashboard") {
     text = "SYS ONLINE NODE ACTIVE LATENCY OK";
   }
@@ -71,3 +94,39 @@ document.addEventListener("modeChange", (e) => {
 
   glyphLayer.style.setProperty("--glyph-content", `"${text}`);
 });
+
+export function renderFeed(feed) {
+  const container = document.getElementById("feed-container");
+
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  feed.forEach((entry) => {
+    const div = document.createElement("div");
+    div.classList.add("feed-entry");
+
+    div.innerHTML = `
+    <span class="feed-time">[${entry.timestamp}]</span>
+    <span class="feed-msg">[${entry.message}]</span>
+    `;
+
+    container.appendChild(div);
+  });
+}
+
+export function renderStorage(notes) {
+  const container = document.getElementById("storage-list");
+
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  notes.forEach((note) => {
+    const div = document.createElement("div");
+    div.classList.add("storage-item");
+    div.textContent = note;
+
+    container.appendChild(div);
+  });
+}

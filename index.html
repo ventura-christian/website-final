@@ -8,11 +8,22 @@
       content="This webpage will be a dashboard that will display live information and simulated infrastructure data. Core concepts: networking, system health, APIs, data flow"
     />
     <meta name="author" content="Christian Ventura" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/arrow.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script type="module" src="js/app.js" defer></script>
     <title>InfraScope</title>
   </head>
-  <body data-mode="dashboard">
+  <body data-mode="idle">
     <header class="layout-nav">
       <nav class="nav">
         <div class="nav-control">
@@ -37,16 +48,12 @@
       <section id="dashboard" class="layout-container">
         <h2 class="ui-section-title">
           SYSTEM INTERFACE
-          <span id="mode-label">[SYSTEMS]</span>
+          <span id="mode-label">[FEED]</span>
         </h2>
 
         <div class="ui-context">
-          <p>
-            Monitoring Active System Layer:
-            <span id="context-mode">SYSTEMS</span>
-          </p>
           <p class="context-secondary">
-            Select a mode to inspect different infrastructure signals.
+            Select a mode to inspect different infrastructure signals
           </p>
         </div>
 
@@ -55,25 +62,90 @@
           <div class="dashboard-glyphs"></div>
 
           <section id="tools" class="dashboard-panel">
+            <div id="idle" class="view" data-view="idle">
+              <h3>&gt;&gt;&gt; SYSTEM STANDBY</h3>
+
+              <p class="panel-desc">
+                [SYSTEM] Interface initialized. Awaiting operator input.
+                <p class="panel-desc">
+                  [UPDATE] Click anywhere on screen to view glyph.
+                </p>
+              </p>
+              <p class="panel-desc">[SIGNAL] No active data streams.</p>
+              <p class="panel-desc">
+                [ACTION] Press "MODE" to begin inspection &gt;&gt;
+              </p>
+            </div>
+
             <div id="systems-view" class="view" data-view="dashboard">
-              <h3>&gt;&gt; ACTIVE SYSTEMS</h3>
-              <br />
+              <h3>&gt;&gt;&gt; ACTIVE SYSTEMS</h3>
+              <p class="panel-desc">
+                [SYSTEM] Monitoring active infrastructure nodes in real time.
+              </p>
+              <p class="panel-desc">
+                [SIGNAL] Latency and status shift dynamically under simulated
+                load conditions.
+              </p>
+              <p class="panel-desc">
+                [ACTION] Identify anomalies, degradation patterns, and failure
+                states.
+              </p>
               <div id="systems-container"></div>
             </div>
 
             <div id="storage" class="view" data-view="storage">
-              <h3>&gt;&gt; STORAGE LAYER</h3>
-              <br />
+              <h3>&gt;&gt;&gt; STORAGE LAYER</h3>
+              <p class="panel-desc">
+                [SYSTEM] Client-side persistence layer initialized.
+              </p>
+              <p class="panel-desc">
+                [SIGNAL] Notes are written to and retrieved from local storage.
+              </p>
+              <p class="panel-desc">
+                [ACTION] Record observations, anomalies, and manual system logs.
+              </p>
+              <div class="storage-panel">
+                <input
+                  type="text"
+                  id="storage-input"
+                  placeholder="Enter system note..."
+                />
+                <button id="storage-save">SAVE NOTE</button>
+                <div id="storage-list"></div>
+              </div>
             </div>
 
-            <div id="carousel" class="view" data-view="feed">
-              <h3>&gt;&gt; EVENT FEED</h3>
-              <br />
+            <div id="feed" class="view" data-view="feed">
+              <h3>&gt;&gt;&gt; EVENT FEED</h3>
+              <p class="panel-desc">
+                [SYSTEM] Event stream capturing live system activity.
+              </p>
+              <p class="panel-desc">
+                [SIGNAL] Logs generated from system transitions and user
+                interaction.
+              </p>
+              <p class="panel-desc">
+                [SELF-AWARENESS] This is crucial for survival....don't hurt yourself 
+              </p>
+              <div class="carousel">
+                  <div>
+                    <img src="./assets/images/crush.jpg" alt="Hand crush caution sign" />
+                  </div>
+                  <div>
+                    <img src="./assets/images/burn.jpg" alt="Hand burn caution sign" />
+                  </div>
+                  <div>
+                    <img src="./assets/images/fire.jpg" alt="Steam burn caution sign" />
+                  </div>
+              </div>
+              <div id="feed-container"></div>
             </div>
           </section>
         </div>
       </section>
     </main>
-    <footer>Copyright &copy; christian_Ventura_2026</footer>
+    <footer class="site-footer">
+      <p>&copy;Copyright christian_Ventura &gt;&gt;&gt; InfraScope</p>
+    </footer>
   </body>
 </html>
