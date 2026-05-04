@@ -72,12 +72,6 @@ h3 {
   padding: 1.5rem;
 }
 
-.layout-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-
 /* Grid system placeholder (future expansion support) */
 .layout-nav {
   position: fixed;
@@ -357,10 +351,24 @@ body[data-mode="feed"] .dashboard-glyphs::before {
   color: var(--color-accent-primary);
 }
 
+/* default hidden state */
+.view {
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  animation: fadeIn 0.25s ease;
+}
+
+/* active view state */
 body[data-mode="dashboard"] [data-view="dashboard"],
 body[data-mode="storage"] [data-view="storage"],
-body[data-mode="feed"] [data-view="feed"] {
+body[data-mode="feed"] [data-view="feed"],
+body[data-mode="idle"] [data-view="idle"] {
   display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 /* Feed container for log output */
@@ -444,14 +452,6 @@ body[data-mode="feed"] [data-view="feed"] {
   border-color: var(--color-danger);
 }
 
-body[data-mode="dashboard"] [data-view="dashboard"],
-body[data-mode="storage"] [data-view="storage"],
-body[data-mode="feed"] [data-view="feed"] {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
 .view {
   display: none;
   animation: fadeIn 0.25s ease;
@@ -490,9 +490,6 @@ body[data-mode="feed"] [data-view="feed"] {
   .layout-container {
     padding: 4rem;
   }
-  .layout-grid {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 @media (min-width: 1280px) {
@@ -525,16 +522,12 @@ body[data-mode="feed"] [data-view="feed"] {
   .nav-menu a:hover {
     color: var(--color-text-primary);
   }
-
-  .layout-grid {
-    grid-template-columns: 2fr 1fr;
-  }
 }
 
 /* Carousel container for system media visualization */
 .carousel {
   margin-bottom: 1.5rem;
-  visibility: hidden;
+  visibility: visible;
   border: 1px solid var(--color-accent-primary);
   padding: 1rem;
   border-radius: 5px;
@@ -708,11 +701,6 @@ body[data-mode="feed"] [data-view="feed"] {
     var(--color-text-primary),
     var(--color-surface-alt)
   );
-}
-
-.panel-desc::before {
-  margin-right: 0.5rem;
-  opacity: 0.7;
 }
 
 body[data-mode="dashboard"] .panel-desc {
