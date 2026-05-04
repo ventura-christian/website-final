@@ -1,5 +1,19 @@
 "use strict";
 
+/*
+  InfraScope: Main Application File
+
+  This file controls:
+    - application state
+    - system simulation
+    - UI mode switching
+    - event logging
+    - integration between modules (API, UI, storage)
+
+    All core functionality is orchestrated from this entry point.
+
+*/
+
 import { initUI } from "./ui.js";
 import { fetchSystems } from "./api.js";
 import { renderSystems, renderFeed, renderStorage } from "./ui.js";
@@ -72,6 +86,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// Maintains a bounded event log (max 20 entries) to simulate constrained system memory
+
+// while ensuring newest events are prioritized for real-time UI rendering.
 function logEvent(message) {
   const timestamp = new Date().toLocaleTimeString();
 
@@ -88,6 +105,9 @@ function logEvent(message) {
   renderFeed(state.feed);
 }
 
+// Simulates real-world infrastructure instability by introducing controlled latency variance
+
+// and deriving system health states from performance thresholds (online → degraded → offline).
 function simulateSystems() {
   state.systems = state.systems.map((system) => {
     let latency = system.latency;
@@ -132,6 +152,9 @@ $(document).ready(function () {
   }
 });
 
+// Centralized UI state controller that synchronizes DOM, visual label, and global mode state
+
+// using a custom event to decouple UI rendering from state mutation logic.
 function setMode(mode) {
   document.body.setAttribute("data-mode", mode);
 
