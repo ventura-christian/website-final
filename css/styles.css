@@ -1,3 +1,4 @@
+/* Global reset for consistent cross-browser layout behavior */
 *,
 *::before,
 *::after {
@@ -6,6 +7,7 @@
   padding: 0;
 }
 
+/* Global design system variables (colors, breakpoints, glow effects) */
 :root {
   --color-bg: #050505;
   --color-surface: #0f0f0f;
@@ -28,6 +30,7 @@
   --bp-desktop: 1280px;
 }
 
+/* Base document styling and background system */
 body {
   background: var(--color-bg);
   color: var(--color-text-primary);
@@ -36,6 +39,7 @@ body {
   overflow-x: hidden;
 }
 
+/* Subtle scanline overlay for system/interface aesthetic */
 body::before {
   content: "";
   position: fixed;
@@ -54,6 +58,7 @@ h3 {
   color: var(--color-text-primary);
 }
 
+/* Layout container for main application structure */
 .layout-main {
   min-height: 100vh;
   display: flex;
@@ -62,6 +67,7 @@ h3 {
   padding: 1.5rem;
 }
 
+/* Section wrapper used for each view container */
 .layout-container {
   padding: 1.5rem;
 }
@@ -72,6 +78,7 @@ h3 {
   gap: 1.5rem;
 }
 
+/* Grid system placeholder (future expansion support) */
 .layout-nav {
   position: fixed;
   top: 1rem;
@@ -82,6 +89,7 @@ h3 {
   z-index: 9999;
 }
 
+/* Fixed navigation container in top-right corner */
 .nav-control {
   display: inline-block;
   position: relative;
@@ -148,6 +156,7 @@ h3 {
   }
 }
 
+/* Navigation dropdown menu (hidden by default) */
 .nav-menu {
   list-style: none;
   position: absolute;
@@ -206,6 +215,7 @@ h3 {
   opacity: 0.8;
 }
 
+/* Section heading style for dashboard areas */
 .ui-section-title {
   font-size: 2rem;
   margin-bottom: 2rem;
@@ -267,6 +277,7 @@ h3 {
   min-height: 250px;
 }
 
+/* Background scanline overlay for dashboard */
 .dashboard-stage::after {
   content: "";
   position: absolute;
@@ -276,6 +287,7 @@ h3 {
   pointer-events: none;
 }
 
+/* Ambient noise layer for visual depth */
 .dashboard-noise {
   position: absolute;
   inset: 0;
@@ -294,6 +306,7 @@ h3 {
   overflow: hidden;
 }
 
+/* Dynamic glyph stream animation */
 .dashboard-glyphs::before {
   content: var(--glyph-content);
   position: absolute;
@@ -350,6 +363,7 @@ body[data-mode="feed"] [data-view="feed"] {
   display: block;
 }
 
+/* Feed container for log output */
 #feed-container {
   display: flex;
   flex-direction: column;
@@ -419,6 +433,7 @@ body[data-mode="feed"] [data-view="feed"] {
   transform: translateX(8px);
 }
 
+/* Status indicators for system health states */
 .system-card.online {
   border-color: var(--color-success);
 }
@@ -442,6 +457,7 @@ body[data-mode="feed"] [data-view="feed"] {
   animation: fadeIn 0.25s ease;
 }
 
+/* Mode label indicator (updated dynamically via JS) */
 #mode-label {
   color: var(--color-accent-primary);
   margin-left: 1rem;
@@ -515,6 +531,7 @@ body[data-mode="feed"] [data-view="feed"] {
   }
 }
 
+/* Carousel container for system media visualization */
 .carousel {
   margin-bottom: 1.5rem;
   visibility: hidden;
@@ -714,6 +731,7 @@ body[data-mode="idle"] [data-view="idle"] {
   display: block;
 }
 
+/* Footer system branding section */
 .site-footer {
   text-align: center;
   padding: 1rem;

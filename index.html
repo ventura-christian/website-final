@@ -1,36 +1,55 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Core document encoding and responsive behavior -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- SEO description for dashboard purpose -->
     <meta
       name="description"
       content="This webpage will be a dashboard that will display live information and simulated infrastructure data. Core concepts: networking, system health, APIs, data flow"
     />
     <meta name="author" content="Christian Ventura" />
+    <!-- Favicon for visual identity in browser tab -->
+
     <link
       rel="shortcut icon"
       href="./assets/images/arrow.png"
       type="image/x-icon"
     />
+
+    <!-- Global stylesheet for layout, theme, and UI system -->
     <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- jQuery required for Slick carousel plugin dependency -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Slick carousel styles (external plugin UI styling) -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
     />
+
+    <!-- Slick carousel functionality (image slider system) -->
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <!-- Main application entry point (module-based JS architecture) -->
     <script type="module" src="js/app.js" defer></script>
     <title>InfraScope</title>
   </head>
   <body data-mode="idle">
+
+    <!-- Navigation controls system mode switching (dashboard, storage, feed) -->
     <header class="layout-nav">
       <nav class="nav">
         <div class="nav-control">
+
+          <!-- Mode toggle trigger (future extension point for UI expansion) -->
           <button id="nav-toggle" class="nav-trigger" data-text="MODE">
             MODE
           </button>
 
+          <!-- Internal navigation for switching system views -->
           <ul id="nav-menu" class="nav-menu">
             <li><a href="#" data-mode="dashboard">Systems</a></li>
             <li><a href="#" data-mode="storage">Storage</a></li>
@@ -41,10 +60,14 @@
     </header>
 
     <main class="layout-main">
+
+      <!-- Landing / idle state view -->  
       <section id="hero" class="layout-fullscreen">
         <h1 class="ui-title">InfraScope</h1>
         <p class="ui-subtitle">Observe your systems</p>
       </section>
+
+      <!-- Primary dashboard container controlling all system views -->
       <section id="dashboard" class="layout-container">
         <h2 class="ui-section-title">
           SYSTEM INTERFACE
@@ -90,9 +113,12 @@
                 [ACTION] Identify anomalies, degradation patterns, and failure
                 states.
               </p>
+
+              <!-- Dynamic JS-rendered system cards injected here -->
               <div id="systems-container"></div>
             </div>
 
+            <!-- Persistent storage interface using localStorage -->
             <div id="storage" class="view" data-view="storage">
               <h3>&gt;&gt;&gt; STORAGE LAYER</h3>
               <p class="panel-desc">
@@ -104,6 +130,8 @@
               <p class="panel-desc">
                 [ACTION] Record observations, anomalies, and manual system logs.
               </p>
+
+              <!-- User input system for persistent note creation -->
               <div class="storage-panel">
                 <input
                   type="text"
@@ -115,6 +143,7 @@
               </div>
             </div>
 
+            <!-- Event feed and system activity stream -->
             <div id="feed" class="view" data-view="feed">
               <h3>&gt;&gt;&gt; EVENT FEED</h3>
               <p class="panel-desc">
@@ -127,6 +156,8 @@
               <p class="panel-desc">
                 [SELF-AWARENESS] This is crucial for survival....don't hurt yourself 
               </p>
+
+              <!-- Media carousel representing system event visualization -->
               <div class="carousel">
                   <div>
                     <img src="./assets/images/crush.jpg" alt="Hand crush caution sign" />
@@ -138,6 +169,8 @@
                     <img src="./assets/images/fire.jpg" alt="Steam burn caution sign" />
                   </div>
               </div>
+
+              <!-- Dynamic event log container populated via JS -->
               <div id="feed-container"></div>
             </div>
           </section>
