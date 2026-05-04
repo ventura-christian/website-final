@@ -57,6 +57,10 @@ modeLinks.forEach((link) => {
 
     body.setAttribute("data-mode", mode);
 
+    const label = document.getElementById("mode-label");
+
+    if (label) label.textContent = `[${mode.toUpperCase()}]`;
+
     document.body.classList.remove("mode-switch");
     void document.body.offsetWidth;
     document.body.classList.add("mode-switch");

@@ -126,7 +126,21 @@ $(document).ready(function () {
       autoplay: true,
       arrows: false,
       dots: true,
-      autoplaySpeed: 2000,
+      autoplaySpeed: 1500,
+      speed: 300,
     });
   }
 });
+
+function setMode(mode) {
+  document.body.setAttribute("data-mode", mode);
+
+  const label = document.getElementById("mode-label");
+  if (label) label.textContent = `[${mode.toUpperCase()}]`;
+
+  document.dispatchEvent(
+    new CustomEvent("modeChange", {
+      detail: mode,
+    }),
+  );
+}
