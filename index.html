@@ -8,6 +8,11 @@
       content="This webpage will be a dashboard that will display live information and simulated infrastructure data. Core concepts: networking, system health, APIs, data flow"
     />
     <meta name="author" content="Christian Ventura" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/arrow.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="css/styles.css" />
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link
@@ -18,7 +23,7 @@
     <script type="module" src="js/app.js" defer></script>
     <title>InfraScope</title>
   </head>
-  <body data-mode="feed">
+  <body data-mode="idle">
     <header class="layout-nav">
       <nav class="nav">
         <div class="nav-control">
@@ -57,35 +62,44 @@
           <div class="dashboard-glyphs"></div>
 
           <section id="tools" class="dashboard-panel">
+            <div id="idle" class="view" data-view="idle">
+              <h3>&gt;&gt;&gt; SYSTEM STANDBY</h3>
+
+              <p class="panel-desc">
+                [SYSTEM] Interface initialized. Awaiting operator input.
+              </p>
+              <p class="panel-desc">[SIGNAL] No active data streams.</p>
+              <p class="panel-desc">
+                [ACTION] Press "MODE" to begin inspection &gt;&gt;
+              </p>
+            </div>
+
             <div id="systems-view" class="view" data-view="dashboard">
-              <h3>&gt;&gt;&gt; ACTIVE SYSTEMS &gt;&gt;&gt;</h3>
-              <br />
+              <h3>&gt;&gt;&gt; ACTIVE SYSTEMS</h3>
               <p class="panel-desc">
-                Real-time system health metrics are displayed below.
+                [SYSTEM] Monitoring active infrastructure nodes in real time.
               </p>
               <p class="panel-desc">
-                Latency and status indicators update dynamically to simulate
-                live infrastructure.
+                [SIGNAL] Latency and status shift dynamically under simulated
+                load conditions.
               </p>
               <p class="panel-desc">
-                Monitor changes to identify degradation, outages, and
-                performance shifts.
+                [ACTION] Identify anomalies, degradation patterns, and failure
+                states.
               </p>
               <div id="systems-container"></div>
             </div>
 
             <div id="storage" class="view" data-view="storage">
-              <h3>&gt;&gt;&gt; STORAGE LAYER &gt;&gt;&gt;</h3>
-              <br />
+              <h3>&gt;&gt;&gt; STORAGE LAYER</h3>
               <p class="panel-desc">
-                Persist operational notes within the client storage layer.
+                [SYSTEM] Client-side persistence layer initialized.
               </p>
               <p class="panel-desc">
-                Entries are retained locally and reloaded on subsequent
-                sessions.
+                [SIGNAL] Notes are written to and retrieved from local storage.
               </p>
               <p class="panel-desc">
-                Use this space to track observations, anomalies, or manual logs.
+                [ACTION] Record observations, anomalies, and manual system logs.
               </p>
               <div class="storage-panel">
                 <input
@@ -94,25 +108,21 @@
                   placeholder="Enter system note..."
                 />
                 <button id="storage-save">SAVE NOTE</button>
-
                 <div id="storage-list"></div>
               </div>
             </div>
 
             <div id="feed" class="view" data-view="feed">
-              <h3>&gt;&gt;&gt; EVENT FEED &gt;&gt;&gt;</h3>
-              <br />
+              <h3>&gt;&gt;&gt; EVENT FEED</h3>
               <p class="panel-desc">
-                Event stream displays real-time system activity and state
-                changes.
+                [SYSTEM] Event stream capturing live system activity.
               </p>
               <p class="panel-desc">
-                Logs are generated dynamically based on system behavior and user
+                [SIGNAL] Logs generated from system transitions and user
                 interaction.
               </p>
               <p class="panel-desc">
-                Use this feed to trace system transitions and monitor
-                operational flow.
+                [ACTION] Trace execution flow and monitor real-time behavior.
               </p>
               <div class="carousel">
                 <div><p>System initialized</p></div>

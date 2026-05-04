@@ -1,9 +1,9 @@
 "use strict";
 
-import { saveNote, getNotes } from "./storage.js";
-import { renderStorage } from "./ui.js";
+import { initUI } from "./ui.js";
 import { fetchSystems } from "./api.js";
-import { renderSystems, renderFeed } from "./ui.js";
+import { renderSystems, renderFeed, renderStorage } from "./ui.js";
+import { saveNote, getNotes } from "./storage.js";
 
 const state = {
   systems: [],

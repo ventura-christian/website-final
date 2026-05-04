@@ -4,7 +4,7 @@ const STORAGE_KEY = "infra_notes";
 
 export function saveNote(note) {
   const notes = getNotes();
-  existing.unshift(note);
+  notes.unshift(note);
 
   localStorage.setItem(STORAGE_KEY, JSON.stringify(notes));
 }

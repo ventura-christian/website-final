@@ -200,7 +200,10 @@ h3 {
 .ui-subtitle {
   font-size: 1.2rem;
   color: var(--color-accent-primary);
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.8;
 }
 
 .ui-section-title {
@@ -249,6 +252,11 @@ h3 {
 
 #dashboard {
   min-height: auto;
+}
+
+.dashboard-panel h3 + .panel-desc {
+  margin-bottom: 1rem;
+  margin-top: 0.75rem;
 }
 
 .dashboard-stage {
@@ -638,12 +646,45 @@ body[data-mode="feed"] [data-view="feed"] {
 }
 
 .panel-desc {
+  position: relative;
   font-family: monospace;
-  font-size: 0.75rem;
-  color: var(--color-accent-tertiary);
+  font-size: 0.8rem;
+  color: var(--color-text-primary);
   opacity: 0.7;
-  margin-bottom: 0.25rem;
-  line-height: 1.4;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.5rem;
+}
+
+.panel-desc + .panel-desc {
+  margin-top: 0.75rem;
+}
+
+.panel-desc:first-of-type {
+  opacity: 0.9;
+}
+
+.panel-desc:last-child::after {
+  display: none;
+}
+
+.panel-desc::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    var(--color-text-primary),
+    var(--color-surface-alt)
+  );
+}
+
+.panel-desc::before {
+  margin-right: 0.5rem;
+  opacity: 0.7;
 }
 
 body[data-mode="dashboard"] .panel-desc {
@@ -656,6 +697,10 @@ body[data-mode="storage"] .panel-desc {
 
 body[data-mode="feed"] .panel-desc {
   color: var(--color-accent-primary);
+}
+
+body[data-mode="idle"] [data-view="idle"] {
+  display: block;
 }
 
 .site-footer {
