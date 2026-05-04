@@ -38,12 +38,10 @@
     <title>InfraScope</title>
   </head>
   <body data-mode="idle">
-
     <!-- Navigation controls system mode switching (dashboard, storage, feed) -->
     <header class="layout-nav">
       <nav class="nav">
         <div class="nav-control">
-
           <!-- Mode toggle trigger (future extension point for UI expansion) -->
           <button id="nav-toggle" class="nav-trigger" data-text="MODE">
             MODE
@@ -51,20 +49,26 @@
 
           <!-- Internal navigation for switching system views -->
           <ul id="nav-menu" class="nav-menu">
-            <li><a href="#" data-mode="dashboard">Systems</a></li>
-            <li><a href="#" data-mode="storage">Storage</a></li>
-            <li><a href="#" data-mode="feed">Feed</a></li>
+            <li>
+              <a href="javascript:void(0)" data-mode="dashboard">Systems</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" data-mode="storage">Storage</a>
+            </li>
+            <li><a href="javascript:void(0)" data-mode="feed">Feed</a></li>
           </ul>
         </div>
       </nav>
     </header>
 
     <main class="layout-main">
-
-      <!-- Landing / idle state view -->  
+      <!-- Landing / idle state view -->
       <section id="hero" class="layout-fullscreen">
         <h1 class="ui-title">InfraScope</h1>
-        <p class="ui-subtitle">Observe your systems</p>
+        <p class="ui-subtitle">
+          System interface for monitoring simulated infrastructure, data
+          streams, and stored events in real time.
+        </p>
       </section>
 
       <!-- Primary dashboard container controlling all system views -->
@@ -90,9 +94,9 @@
 
               <p class="panel-desc">
                 [SYSTEM] Interface initialized. Awaiting operator input.
-                <p class="panel-desc">
-                  [UPDATE] Click anywhere on screen to view glyph.
-                </p>
+              </p>
+              <p class="panel-desc">
+                [UPDATE] Click anywhere on screen to view glyph.
               </p>
               <p class="panel-desc">[SIGNAL] No active data streams.</p>
               <p class="panel-desc">
@@ -154,20 +158,30 @@
                 interaction.
               </p>
               <p class="panel-desc">
-                [SELF-AWARENESS] This is crucial for survival....don't hurt yourself 
+                [SELF-AWARENESS] This is crucial for survival....don't hurt
+                yourself
               </p>
 
               <!-- Media carousel representing system event visualization -->
               <div class="carousel">
-                  <div>
-                    <img src="./assets/images/crush.jpg" alt="Hand crush caution sign" />
-                  </div>
-                  <div>
-                    <img src="./assets/images/burn.jpg" alt="Hand burn caution sign" />
-                  </div>
-                  <div>
-                    <img src="./assets/images/fire.jpg" alt="Steam burn caution sign" />
-                  </div>
+                <div>
+                  <img
+                    src="./assets/images/crush.jpg"
+                    alt="Hand crush caution sign"
+                  />
+                </div>
+                <div>
+                  <img
+                    src="./assets/images/burn.jpg"
+                    alt="Hand burn caution sign"
+                  />
+                </div>
+                <div>
+                  <img
+                    src="./assets/images/fire.jpg"
+                    alt="Steam burn caution sign"
+                  />
+                </div>
               </div>
 
               <!-- Dynamic event log container populated via JS -->
@@ -178,7 +192,7 @@
       </section>
     </main>
     <footer class="site-footer">
-      <p>&copy;Copyright christian_Ventura &gt;&gt;&gt; InfraScope</p>
+      <p>&copy; 2026 Copyright christian_Ventura &gt;&gt;&gt; InfraScope</p>
     </footer>
   </body>
 </html>
